@@ -11,5 +11,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
+    private final OrderService orderService;
 
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+    @GetMapping("add")
+    public List<Integer> addItems (@RequestParam List<Integer> ids){
+        return orderService.addItems(ids);
+    }
+    @GetMapping("get")
+    public List<Integer> getItems (){
+        return orderService.getItems();
+    }
 }

@@ -8,5 +8,16 @@ import java.util.List;
 @Component
 @SessionScope
 public class Cart {
+    private  final List<Integer> items;
 
+    public Cart() {
+        items = new ArrayList<>();
+    }
+    public List <Integer> addItems (List <Integer> ids){
+        this.items.addAll(ids);
+        return this.items;
+    }
+    public List <Integer> getItems (){
+        return  this.items;
+    }
 }
